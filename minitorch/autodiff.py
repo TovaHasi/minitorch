@@ -16,6 +16,7 @@ class Variable:
         name (string) : a globally unique name of the variable
     """
 
+
     def __init__(self, history, name=None):
         global variable_count
         assert history is None or isinstance(history, History), history
