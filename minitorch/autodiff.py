@@ -316,7 +316,7 @@ def topological_sort(variable):
         for input in var.history.inputs:
             if not is_constant(input):
                 dfs(input)
-                
+
         sorted_variables.append(var)
         var_dict[var.unique_id] = 1
 

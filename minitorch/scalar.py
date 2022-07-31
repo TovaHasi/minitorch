@@ -189,7 +189,7 @@ class Mul(ScalarFunction):
     @staticmethod
     def backward(ctx, d_output):
         (a, b) = ctx.saved_values
-        return  b * d_output, a * d_output
+        return b * d_output, a * d_output
 
 
 class Inv(ScalarFunction):
@@ -214,7 +214,7 @@ class Neg(ScalarFunction):
 
     @staticmethod
     def backward(ctx, d_output):
-        return -1. * d_output
+        return -1.0 * d_output
 
 
 class Sigmoid(ScalarFunction):
@@ -270,8 +270,7 @@ class LT(ScalarFunction):
     @staticmethod
     def backward(ctx, d_output):
         (a, b) = ctx.saved_values
-        return (0., 0.) if a < b else (0., 0.)
-
+        return (0.0, 0.0) if a < b else (0.0, 0.0)
 
 
 class EQ(ScalarFunction):
@@ -285,7 +284,7 @@ class EQ(ScalarFunction):
     @staticmethod
     def backward(ctx, d_output):
         (a, b) = ctx.saved_values
-        return (0., 0.) if a == b else (0., 0.)
+        return (0.0, 0.0) if a == b else (0.0, 0.0)
 
 
 def derivative_check(f, *scalars):
