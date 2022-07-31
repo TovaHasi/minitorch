@@ -32,12 +32,12 @@ def neg(x):
 
 def lt(x, y):
     ":math:`f(x) =` 1.0 if x is less than y else 0.0"
-    return 1.0 if x < y else 0.0
+    return 1. if x < y else 0.
 
 
 def eq(x, y):
     ":math:`f(x) =` 1.0 if x is equal to y else 0.0"
-    return 1.0 if x == y else 0.0
+    return 1. if x == y else 0.
 
 
 def max(x, y):
@@ -81,7 +81,7 @@ def sigmoid(x):
     Returns:
         float : sigmoid value
     """
-    return 1.0 / (1.0 + exp(-x)) if x >= 0 else exp(x) / (1.0 + exp(x))
+    return 1. / (1. + exp(-x)) if x >= 0. else exp(x) / (1. + exp(x))
 
 
 def relu(x):
@@ -96,7 +96,7 @@ def relu(x):
     Returns:
         float : relu value
     """
-    return x if x > 0 else 0
+    return x if x > 0. else 0.
 
 
 def log_back(x, d):
@@ -106,7 +106,7 @@ def log_back(x, d):
 
 def inv(x):
     ":math:`f(x) = 1/x`"
-    return 1.0 / x
+    return 1. / x
 
 
 def inv_back(x, d):
@@ -116,7 +116,7 @@ def inv_back(x, d):
 
 def relu_back(x, d):
     r"If :math:`f = relu` compute :math:`d \times f'(x)`"
-    return d if x > 0 else 0
+    return d if x > 0. else 0.
 
 
 # ## Task 0.3
@@ -215,9 +215,9 @@ def reduce(fn, start):
 
 def sum(ls):
     "Sum up a list using :func:`reduce` and :func:`add`."
-    return reduce(add, 0)(ls)
+    return reduce(add, 0.)(ls)
 
 
 def prod(ls):
     "Product of a list using :func:`reduce` and :func:`mul`."
-    return reduce(mul, 1)(ls)
+    return reduce(mul, 1.)(ls)
