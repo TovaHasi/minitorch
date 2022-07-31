@@ -343,13 +343,13 @@ def backpropagate(variable, deriv):
 
     for var in sorted_variables:
         if var.is_leaf():
-            if not var.unique_id in all_deriv and right_bacprop:
+            if var.unique_id not in all_deriv and right_bacprop:
                 var.accumulate_derivative(deriv)
                 right_bacprop = False
             else:
                 var.accumulate_derivative(all_deriv[var.unique_id])
         else:
-            if not var.unique_id in all_deriv and right_bacprop:
+            if var.unique_id not in all_deriv and right_bacprop:
                 chain_rule = var.history.backprop_step(deriv)
                 right_bacprop = False
             else:
