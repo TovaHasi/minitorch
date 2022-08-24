@@ -80,6 +80,13 @@ def test_permute(data):
     td = data.draw(tensor_data())
     ind = data.draw(indices(td))
     td_rev = td.permute(*list(reversed(range(td.dims))))
+
+    print("????????")
+    print(td_rev._shape)
+    print(td._shape)
+
+    print(td.index(ind) == td_rev.index(tuple(reversed(ind))))
+    print(ind)
     assert td.index(ind) == td_rev.index(tuple(reversed(ind)))
 
     td2 = td_rev.permute(*list(reversed(range(td_rev.dims))))

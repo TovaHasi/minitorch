@@ -270,7 +270,7 @@ class LT(ScalarFunction):
     @staticmethod
     def backward(ctx, d_output):
         (a, b) = ctx.saved_values
-        return (0.0, 0.0) if a < b else (0.0, 0.0)
+        return 0.0 * d_output, 0.0 * d_output
 
 
 class EQ(ScalarFunction):
@@ -284,7 +284,7 @@ class EQ(ScalarFunction):
     @staticmethod
     def backward(ctx, d_output):
         (a, b) = ctx.saved_values
-        return (0.0, 0.0) if a == b else (0.0, 0.0)
+        return 0.0 * d_output, 0.0 * d_output
 
 
 def derivative_check(f, *scalars):
